@@ -1,12 +1,34 @@
-import Entry from "./components/Entry"
 import Header from "./components/Header"
+import Entry from "./components/Entry"
+import data from "./data"
 
 function App() {
+  const entryElements = data.map(entry => 
+    <Entry 
+    img={entry.img}
+    title={entry.title}
+    country={entry.country}
+    googleMapsLink={entry.googleMapsLink}
+    dates={entry.dates}
+    text={entry.text}
+    />
+  );
+
   return (
     <>
       <Header/>
       <main className="container">
-        <Entry
+        {entryElements}
+      </main>
+    </>
+  )
+}
+
+export default App
+
+
+/*
+* <Entry
         img={{
           src: "https://scrimba.com/links/travel-journal-japan-image-url",
           alt: "Mount Fuji"
@@ -17,9 +39,4 @@ function App() {
         dates="12 Jan, 2021 - 24 Jan, 2021"
         text="Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists."
         />
-      </main>
-    </>
-  )
-}
-
-export default App
+*/
